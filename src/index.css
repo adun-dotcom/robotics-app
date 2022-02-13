@@ -1,13 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@700&family=Kaushan+Script&family=Noto+Serif:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1b2688;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 923px) {
+  .brand {
+    font-size: 20px;
+  }
+}
+
+.animated-intro {
+  width: 100%;
+  background-color: #fff;
+}
+
+.animated-sub {
+  background-color: #eaebf8;
+  width: 92%;
+  height: 100vh;
+}
+
+.animated-sub1 {
+  background-color: #1b2688;
+  width: 88%;
+  height: 100%;
+}
+
+.animated-sub2 {
+  background-color: #fff;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+  align-items: center;
+  color: #1b2688;
+
+}
+.container {
+  max-width: 1100px;
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+h3 {
+  color: #2836b1;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 789px) {
+  h3 {
+    font-size: 28px;
+  }
+
+  .animated-sub {
+    width: 90%;
+  }
+
+  .animated-sub1 {
+    width: 79%;
+  }
+
+  .animated-sub2 {
+    background-color: #fff;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  h3 {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .animated-sub {
+    width: 100%;
+  }
+
+  .animated-sub1 {
+    width: 70%;
+  }
+
+  .animated-sub2 {
+    background-color: #fff;
+    width: 55%;
+    padding-right:30px;
+  }
 }
