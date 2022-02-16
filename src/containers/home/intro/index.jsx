@@ -14,20 +14,20 @@ import {
   textAnimation,
   timeAnimation,
   imageAnimation,
-  cardHover,
+  preLoaderAnimation,
+  learnMoreAnimation,
+  learnMoreContentAnimation,
+  investImage,
   
 } from "../../../components/Animation";
 import {useInView} from 'react-intersection-observer';
+import { useScroll } from "../../../components/useScroll";
+import HomeButton from "../../../components/button";
 
 export default function Intro() {
-  const controls = useAnimation();
-  const [element, inView] = useInView();
+  const [element, controls] = useScroll();
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("show")
-    }
-  }, [controls, inView]);
+ 
   const calcTimeLeft = () => {
     let year = new Date().getFullYear();
     const difference = +new Date(`07/21/${year}`) - +new Date();
@@ -74,6 +74,10 @@ export default function Intro() {
 
   return (
     <motion.div 
+    variants={preLoaderAnimation}
+    initial={"hidden"}
+    whileInView={"show"}
+    className="section"
    >
       <Header />
       <IntroWrap>
@@ -85,10 +89,8 @@ export default function Intro() {
             
           >
             <motion.div
-           
               variants={parentTextAnimation}
-              initial="hidden"
-              animate={'show'}
+              
               className="content-text"
             >
               <motion.h1
@@ -105,15 +107,27 @@ export default function Intro() {
               <motion.div 
               className="count-down"
               variants={timeAnimation}
-                initial={"hidden"}
-                animate="show"
+               
               >
                 {timerComponents.length ? (
                   timerComponents
                 ) : (
                   <div>no time left</div>
                 )}
+
+
               
+              </motion.div>
+              <motion.div
+              variants={textAnimation}
+              className="whitelist"
+              >
+                <HomeButton green text="join whitelist"/>
+                <span className='border'></span>
+                <motion.div>
+                  <p>1330 participants</p>
+                  <small>In whitelist</small>
+                </motion.div>
               </motion.div>
             </motion.div>
             <motion.div 
@@ -126,51 +140,63 @@ export default function Intro() {
           </motion.div>
         </div>
         <div className="skewed-div2"></div>
-        <div className="absolute-cards container">
+        <div className="absolute-cards container"  >
           <div className="cards-wrapper ">
-            <div className="cards">
-              <motion.div 
-              ref={element}
-              variants={cardHover}
-              whileHover={'whileHover'}
-              whileTap='whileTap'
+            <motion.div 
+            variants={learnMoreAnimation}
+            initial={'hidden'}
+            whileInView={'show'}
+            className="cards">
+              <motion.div
+              variants={learnMoreContentAnimation}
+              
               className="content">
-                <img src={LearnMore1} alt={"LearnMore"} />
+                <motion.img 
+                variants={investImage}
+                src={LearnMore1} alt={"LearnMore"} />
 
                 <h4>Own Machine Learning</h4>
                 <p>
                   Melior has already developed its own Machine Learning, Neural
                   Network and Deep Learning models
                 </p>
-                <div className="learn-more">Learn more</div>
+                <div className="learn-more-div">
+                <button className="learn-more">Learn more</button>
+                </div>
               </motion.div>
-              <motion.div className="content"
+              <motion.div
+              variants={learnMoreContentAnimation}
               className="content">
-               <img src={LearnMore2} alt={"LearnMore"} />
+               <motion.img 
+                variants={investImage}
+                 src={LearnMore2} alt={"LearnMore"} />
                 <h4>Own Machine Learning</h4>
                 <p>
                   Melior has already developed its own Machine Learning, Neural
                   Network and Deep Learning models
                 </p>
-                <div className="learn-more">Learn more</div>
+                <div className="learn-more-div">
+                <button className="learn-more">Learn more</button>
+                </div>
               </motion.div>
-              <motion.div className="content"
-              ref={element}
-              variants={cardHover}
-              whileHover={'whileHover'}
-              whileTap='whileTap'
+              <motion.div
+              variants={learnMoreContentAnimation}
+            
               className="content">
               
-                <img src={LearnMore2} alt={"LearnMore"} />
+              <motion.img 
+                variants={investImage} src={LearnMore2} alt={"LearnMore"} />
 
                 <h4>Own Machine Learning</h4>
                 <p>
                   Melior has already developed its own Machine Learning, Neural
                   Network and Deep Learning models
                 </p>
-                <div className="learn-more">Learn more</div>
+                <div className="learn-more-div">
+                <button className="learn-more">Learn more</button>
+                </div>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </IntroWrap>

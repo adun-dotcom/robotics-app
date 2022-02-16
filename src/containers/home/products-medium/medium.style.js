@@ -302,6 +302,7 @@ position:relative;
             background: #1B2688;
             margin-top:-60px;
             display:flex;
+            border: 1px solid #C4C4C4;
         justify-content:center;
         align-items:center;
         }

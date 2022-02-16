@@ -7,15 +7,15 @@ import GreySlant from '../../../assets/grey-slant.svg';
 import SlantGrey from "../../../assets/slant-grey-2.svg";
 import {motion} from 'framer-motion';
 import {useScroll} from '../../../components/useScroll'
-import { buttonAnimation, h1Animation, inputAnimation, latestContainer, textAnimation } from "../../../components/Animation";
+import { buttonAnimation, h1Animation, inputAnimation, investAnimation, investImage, investSubAnimation, latestContainer, textAnimation } from "../../../components/Animation";
 import HomeButton from "../../../components/button";
 export default function LearnMore() {
   const [element, controls] =  useScroll();
   return (
-    <LearnWrap ref={element}>
+    <LearnWrap >
       <div className="skewed-div">
         <div className="container">
-          <div className="content-div">
+          <div className="content-div" >
             <div className="content-div1">
               <h3>Why Invest?</h3>
               <p>
@@ -25,9 +25,17 @@ export default function LearnMore() {
               </p>
               <HomeButton blue text="buy coins now"/>
             </div>
-            <div className="content-div2">
-              <div className="content-sub">
-                <img src={LearnMore3} alt={"LearnMore"} />
+            <motion.div 
+            ref={element}
+            variants={investAnimation}
+            animate={controls}
+            className="content-div2">
+              <motion.div 
+              variants={investSubAnimation}
+              className="content-sub">
+                <motion.img 
+                variants={investImage}
+                src={LearnMore3} alt={"LearnMore"} />
                 <div className=''>
                   <h4>Mellor marketplace</h4>
                   <p>
@@ -37,9 +45,13 @@ export default function LearnMore() {
                     token transaction.
                   </p>
                 </div>
-              </div>
-              <div className="content-sub">
-                <img src={LearnMore3} alt={"LearnMore"} />
+              </motion.div>
+              <motion.div 
+              variants={investSubAnimation}
+              className="content-sub">
+                <motion.img 
+                variants={investImage}
+                src={LearnMore3} alt={"LearnMore"} />
                 <div className=''>
                   <h4>Mellor marketplace</h4>
                   <p>
@@ -49,9 +61,13 @@ export default function LearnMore() {
                     token transaction.
                   </p>
                 </div>
-              </div>
-              <div className="content-sub">
-                <img src={LearnMore3} alt={"LearnMore"} />
+              </motion.div>
+              <motion.div 
+              variants={investSubAnimation}
+              className="content-sub">
+                <motion.img 
+                variants={investImage}
+                src={LearnMore3} alt={"LearnMore"} />
                 <div className=''>
                   <h4>Mellor marketplace</h4>
                   <p>
@@ -61,13 +77,13 @@ export default function LearnMore() {
                     token transaction.
                   </p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
           <motion.div 
           variants={latestContainer}
           initial='hidden'
-          animate={controls}
+          whileInView={'show'}
           className="absolute-latest">
               <div className="div-relative">
               <img src={GreenSlant} className="absolute green-slant"/>

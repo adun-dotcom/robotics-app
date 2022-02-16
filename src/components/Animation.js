@@ -7,11 +7,12 @@ export const preLoaderAnimation = {
     transition: {  
       duration: 1,
       ease: 'easeOut',
-      
+      delayChildren:.4,
+      staggerChildren:1
     },
   },
   exit: {
-    x:'-100vw',
+    Y:'-100vh',
     transition: {
       
       duration: 0.7,
@@ -90,7 +91,7 @@ export const headerAnimation = {
   show: {
     x: 0,
     opacity: 1,
-    transition: { type: "spring", duration: 3, },
+    transition: { type: "spring", duration: 3, delay:.4 },
   },
 };
 
@@ -103,15 +104,14 @@ export const parentTextAnimation = {
       mass:0.4,
       damping:8,
       when:'beforeChildren',
-      staggerChildren:6
+      staggerChildren:2
     }
   }
 }
 export const h1Animation = {
-  hidden:{opacity:0, y:100},
+  hidden:{opacity:0, y:50},
   show:{opacity:1,y:0, transition:{
     duration:1,
-    
      ease:'easeInOut'
   }}
 }
@@ -151,13 +151,6 @@ export const imageAnimation = {
   }}
 }
 
-export const cardHover =  {
-  whileHover:{
-    scale: 1.2,
-    transition: { duration: 1 },
-  },
-  whileTap:{ scale: 0.9 }
-}
 
 export const container = {
   hidden: { opacity: 0, },
@@ -195,10 +188,11 @@ export const mobileContent = {
 }
 
 export const latestContainer = {
-  hidden:{x:-500, opacity:0},
+  hidden:{x:-100, opacity:0},
   show:{opacity:1, x:0,  transition:{
-    duration:2, ease:'easeInOut',
+    duration:1, ease:'easeInOut',
     when:'beforeChildren',
+    staggerChildren:.4
   }}
 }
 
@@ -212,15 +206,15 @@ export const inputAnimation = {
 export const buttonAnimation = {
   hover: {
     scale: 1.3,
-    textShadow:'rgba(0, 0, 0, 0.2) 0px 3px 6px 4px ',
+    // textShadow:'rgba(0, 0, 0, 0.2) 0px 3px 6px 4px ',
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 6px 4px",
     transition: {
       yoyo: Infinity,
       duration: 0.6,
     },
   },
-  hidden:{x:-200, opacity:0},
-  show:{opacity:1, x:0,  transition:{
+  hidden:{ opacity:0},
+  show:{opacity:1,   transition:{
     duration:1, ease:'linear',
   }},
 
@@ -228,9 +222,56 @@ export const buttonAnimation = {
 
 
 export const readyContainer = {
-  hidden:{x:-500, opacity:0},
+  hidden:{x:-100, opacity:0},
   show:{opacity:1, x:0,  transition:{
-    duration:2, ease:'easeInOut',
+    duration:1, ease:'easeInOut',
     when:'beforeChildren',
+    staggerChildren:.4
+
   }}
+}
+
+export const learnMoreAnimation = {
+  hidden:{opacity:0},
+  show:{opacity:1, transition:{
+    staggerChildren:1
+  }}
+}
+
+export const learnMoreContentAnimation = {
+  hidden:{opacity:0},
+  show:{opacity:1, transition:{
+    duration:.6, ease:'easeInOut',
+    staggerChildren:2, 
+  }}
+}
+
+export const investAnimation = {
+  hidden:{opacity:0},
+  show:{
+    opacity: 1,
+    transition:{
+      staggerChildren:1,
+    }
+  }
+}
+
+export const investSubAnimation = {
+  hidden: {opacity:0, x:50},
+  show:{opacity:1, x:0, transition:{
+    ease:'easeInOut',
+    duration:.8,
+    when:'beforeChildren'
+  }}
+}
+
+export const investImage = {
+  hidden:{ scale: 0 },
+  show:{rotate: 360, scale: 1,
+  transition:{
+    type: "spring",
+    stiffness: 260,
+    damping: 20
+  }
+}
 }

@@ -63,17 +63,15 @@ export default function Home() {
         </AnimatePresence>
       ) : (
         <motion.div
-          variants={preLoaderAnimation}
-          initial={"hidden"}
-          animate={"show"}
+        
         >
-          <div>
+          
             <Intro />
             <LearnMore />
             <Products />
             <ProductMedium />
             <Footer />
-          </div>
+         
         </motion.div>
       )}
     </>
