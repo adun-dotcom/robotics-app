@@ -15,7 +15,7 @@ export const preLoaderAnimation = {
     Y:'-100vh',
     transition: {
       
-      duration: 0.7,
+      duration: 0.2,
       ease: 'easeInOut',
     },
   },
